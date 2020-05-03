@@ -39,8 +39,26 @@ var light = new THREE.PointLight(0xffffff, 1, 500);
 light.position.set(10, 0, 25);
 scene.add(light);
 
-// scene and camera to the renderer
-renderer.render(scene, camera);
+
+// game logic goes here
+var update = function () {
+    console.log("udpate");
+};
+
+// draw scene
+var render = function () {
+    renderer.render(scene, camera);
+};
+
+// run game loop (update, render, repeat)
+var gameLoop = function () {
+    requestAnimationFrame(gameLoop);
+
+    update();
+    render();
+};
+
+gameLoop();
 
 // renderer is added to the dom element
 container.appendChild(renderer.domElement);
