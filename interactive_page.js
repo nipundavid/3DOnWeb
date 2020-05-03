@@ -26,8 +26,8 @@ window.addEventListener("resize", () => {
     camera.updateProjectionMatrix();
 });
 
-// new sphere (radius, width segments, height segments)
-var geometry = new THREE.SphereGeometry(1, 100, 100);
+// new box (x-scale, y-scale, z-scale)
+var geometry = new THREE.BoxGeometry(1, 1, 1);
 var material = new THREE.MeshLambertMaterial({
     color: 0xffcc00
 });
@@ -53,7 +53,6 @@ var render = function () {
 // run game loop (update, render, repeat)
 var gameLoop = function () {
     requestAnimationFrame(gameLoop);
-
     update();
     render();
 };
