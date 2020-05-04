@@ -1,6 +1,6 @@
 # 3D on Web via Three.js
 
-This project can be used for the vanilla three.js projects. The cavas is inserted via container in the HTML file which was accessed in the javascript file using  querySelector.
+This project can be used as a boilerplate for the vanilla three.js projects. The canvas is inserted via container in the HTML file which was accessed in the javascript file using querySelector.
 
 ### References and Links Used
 
