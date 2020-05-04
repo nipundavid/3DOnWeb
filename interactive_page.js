@@ -31,8 +31,12 @@ var geometry = new THREE.BoxGeometry(1, 1, 1);
 var material = new THREE.MeshLambertMaterial({
     color: 0xffcc00
 });
-var sphere = new THREE.Mesh(geometry, material);
-scene.add(sphere);
+
+// create a box with geometery and material created above
+var box = new THREE.Mesh(geometry, material);
+
+// add box in the scene
+scene.add(box);
 
 // new point light (white color, intensity, range)
 var light = new THREE.PointLight(0xffffff, 1, 500);
@@ -42,7 +46,8 @@ scene.add(light);
 
 // game logic goes here
 var update = function () {
-    console.log("udpate");
+
+    box.rotation.y += 0.05;
 };
 
 // draw scene
