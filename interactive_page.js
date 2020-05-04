@@ -26,6 +26,8 @@ window.addEventListener("resize", () => {
     camera.updateProjectionMatrix();
 });
 
+var raycaster = new THREE.Raycaster();
+var mouse = new THREE.Vector2();
 
 // new box (x-scale, y-scale, z-scale)
 var geometry = new THREE.BoxGeometry(1, 1, 1);
@@ -69,9 +71,22 @@ timelineAnim.to(box.scale, {
     ease: Expo.easeOut
 });
 
-window.addEventListener("click", () => {
-    timelineAnim.play();
-});
+window.addEventListener("mousemove", onMouseMove);
+
+function onMouseMove(event) {
+    event.preventDefault();
+
+    mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
+    mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
+
+    raycaster.setFromCamera(mouse, camera);
+
+    var intersects = raycaster.intersectObjects(scene.children, true);
+    for (var i = 0; i < intersects.length; i++) {
+        intersects[i].object.material.color.set(0xff0000);
+        timelineAnim.play();
+    }
+}
 
 // game logic goes here
 var update = function () {
