@@ -43,11 +43,23 @@ var light = new THREE.PointLight(0xffffff, 1, 500);
 light.position.set(10, 0, 25);
 scene.add(light);
 
+// this.tl = new TimelineMax().delay(.3);
+// this.tl.to(this.box.scala, 1, {
+//     x: 10,
+//     ease: Expo.easeOut
+// });
+
+tl = gsap.timeline().delay(.3);
+tl.to(box.scala, 1, {
+    y: 2,
+    ease: Expo.easeOut
+});
+
 
 // game logic goes here
 var update = function () {
-
-    box.rotation.y += 0.05;
+    //animation, rotation on y-axix
+    // box.rotation.y += 0.05;
 };
 
 // draw scene
